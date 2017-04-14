@@ -1,0 +1,3 @@
+{
+"admin":{"pass":"admin", "name":"Администратор","permissions":{"operate":true, "view":true}}
+}

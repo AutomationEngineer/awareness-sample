@@ -1,0 +1,18 @@
+{
+  "name": "awareness-sample",
+  "version": "0.0.1",
+  "description": "SCADA-like application sample project",
+  "main": "index.js",
+  "dependencies": {
+    "awareness":"AutomationEngineer/awareness"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scada",
+    "plc"
+  ],
+  "author": "Victor Kulikov",
+  "license": "MIT"
+}
