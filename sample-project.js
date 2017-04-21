@@ -16,6 +16,6 @@ var node = new a.Neuron({
 });
 
 
-a.Neuron.afterInit = function(){
-    var web = new a.Web({secure: false, port: 3000, grafana:'http://192.168.0.125:3001', users: users}, node);
+a.Neuron.afterInit = function() {
+    var web = new a.Web({secure: false, port: 3000, grafana: 'http://192.168.0.125:3001', users: users}, node);
 };
