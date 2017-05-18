@@ -14,7 +14,7 @@ var node = new a.Neuron({
         csd: new a.CSD({name: "Сигнализация"}),
         level: new a.Neuron({name: 'Уровень', value: 0, rw: true, setValueHandler: a.Neuron.setValueFloatHandler}),
         flow: new a.Neuron({name: 'Расход', value: 0, rw: true, setValueHandler: a.Neuron.setValueFloatHandler}),
-        pid: new a.Pid({name: "ПИД", pV: 'level'}),
+        pid: new a.Pid({name: "ПИД", pV: 'level', t: 100, n: 10}),
         calls: new a.Neuron({name: 'Вызовы', value: 0}),
         writes: new a.Neuron({name: 'Записи', value: 0}),
     }
