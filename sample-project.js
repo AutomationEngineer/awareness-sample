@@ -17,6 +17,7 @@ var node = new a.Neuron({
         pid: new a.Pid({name: "ПИД", pV: 'level', t: 100, n: 10}),
         calls: new a.Neuron({name: 'Вызовы', value: 0}),
         writes: new a.Neuron({name: 'Записи', value: 0}),
+        esp: new a.EspBridge({name: 'ESP'}),
     }
 });
 
