@@ -12,9 +12,9 @@ var node = new a.Neuron({
     name: "Узел редуцирования газа", children: {
         valve1: new a.Valve({name: "Кран1"}),
         csd: new a.CSD({name: "Сигнализация"}),
-        level: new a.Neuron({name: 'Уровень', value: 0, rw: true, setValueHandler: a.Neuron.setValueFloatHandler}),
+        level: new a.Neuron({name: 'Уровень', value: 0, fixed: 2, rw: true, setValueHandler: a.Neuron.setValueFloatHandler}),
         flow: new a.Neuron({name: 'Расход', value: 0, rw: true, setValueHandler: a.Neuron.setValueFloatHandler}),
-        pid: new a.Pid({name: "ПИД", pV: 'level', t: 100, n: 10}),
+        pid: new a.Pid({name: "ПИД", pV: 'level', t: 100, n: 10, fixed: 2}),
         calls: new a.Neuron({name: 'Вызовы', value: 0}),
         writes: new a.Neuron({name: 'Записи', value: 0}),
         esp: new a.EspBridge({name: 'ESP'}),
