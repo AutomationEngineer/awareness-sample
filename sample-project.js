@@ -12,7 +12,10 @@ var node = new a.Neuron({
     name: "Узел редуцирования газа", children: {
         valve1: new a.Valve({name: "Кран1"}),
         csd: new a.CSD({name: "Сигнализация"}),
-        level: new a.Neuron({name: 'Уровень', value: 0, fixed: 2, rw: true, setValueHandler: a.Neuron.setValueFloatHandler}),
+        level: new a.Neuron({name: 'Уровень', value: 0, fixed: 2, rw: true, setValueHandler: a.Neuron.setValueFloatHandler, states:[
+            {condition:function(val){return val > 60}, level: 2, text: "Предупредительный верхний уровень"},
+            {condition:function(val){return val > 80}, level: 3, text: "Аварийный верхний уровень"},
+        ]}),
         flow: new a.Neuron({name: 'Расход', value: 0, rw: true, setValueHandler: a.Neuron.setValueFloatHandler}),
         pid: new a.Pid({name: "ПИД", pV: 'level', t: 100, n: 10, fixed: 2}),
         calls: new a.Neuron({name: 'Вызовы', value: 0}),
