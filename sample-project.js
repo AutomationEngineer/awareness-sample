@@ -3,6 +3,8 @@ var fs = require("fs");
 
 a.Neuron.setDB({host:'192.168.0.139'});
 
+a.Neuron.setMessaging(new a.Telegram({user:'user1', pass:'kjbkjb', to:'-1001105811074', service: 'awareness-telegramm-bot.herokuapp.com', proxy:{host: 'localhost', port: 3128}}));
+
 a.Neuron.projectPath = __dirname;
 
 var users = JSON.parse(fs.readFileSync(a.Neuron.projectPath + '/users.json', "utf8"));
