@@ -22,7 +22,9 @@ var node = new a.Neuron({
         pid: new a.Pid({name: "ПИД", pV: 'level', t: 100, n: 10, fixed: 2}),
         calls: new a.Neuron({name: 'Вызовы', value: 0}),
         writes: new a.Neuron({name: 'Записи', value: 0}),
-        esp: new a.EspBridge({name: 'ESP'}),
+        esp: new a.EspBridge({name: 'ESP', ip: '192.168.0.133', outputs:[2,4]}),
+        esp2: new a.EspBridge({name: 'ESP2', ip: '192.168.0.137', outputs:[2], inputs:[4,5]}),
+        rr: new a.Neuron({name: 'rr', rw:true}),
     }
 });
 
@@ -30,10 +32,18 @@ var node = new a.Neuron({
 a.Neuron.afterInit = function() {
     var web = new a.Web({secure: false, port: 3000, grafana: 'http://192.168.0.139:3001', users: users}, node);
 
-    setInterval(level, 50);
+    setInterval(level, 10);
+
+
 };
 
+node.children.esp2.children.i04.onChange = (caller)=>{
+    if(caller.value === 1 && caller.quality === 'good') node.children.esp.children.o04.value = 1;
+};
 
+node.children.esp2.children.i05.onChange = (caller)=>{
+    if(caller.value === 1 && caller.quality === 'good') node.children.esp.children.o04.value = 0;
+};
 
 
 
