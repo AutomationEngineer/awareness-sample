@@ -9,6 +9,9 @@ a.Neuron.projectPath = __dirname;
 
 var users = JSON.parse(fs.readFileSync(a.Neuron.projectPath + '/users.json', "utf8"));
 
+var sR1 = new a.TcpResource('192.168.0.200', 4001, a.reportError('serialResource1'));//ЩУН
+var sMoMa1 = new a.SerialModbusMaster(sR1, {}, false);//ЩУН
+
 
 var node = new a.Neuron({
     name: "Узел редуцирования газа", children: {
@@ -25,6 +28,7 @@ var node = new a.Neuron({
         esp: new a.EspBridge({name: 'ESP', ip: '192.168.0.133', outputs:[2,4]}),
         esp2: new a.EspBridge({name: 'ESP2', ip: '192.168.0.137', outputs:[2], inputs:[4,5]}),
         rr: new a.Neuron({name: 'rr', rw:true}),
+        pC: new a.PumpsControl({name: 'ЩУН', master: sMoMa1, address: 16, nP: 3}),
     }
 });
 
@@ -34,6 +38,7 @@ a.Neuron.afterInit = function() {
 
     setInterval(level, 10);
 
+    sR1.startQueue();
 
 };
 

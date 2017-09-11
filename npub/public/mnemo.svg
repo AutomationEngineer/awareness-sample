@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <script>window.alert('click!');</script>
+    <script>//window.alert('click!');</script>
     <rect
             width="500"
             height="500"
@@ -14,10 +14,11 @@
             y="20"
             data-eval="me.text(neuron.name);"
             style="stroke:none;fill-opacity:1;fill:#ffffff;opacity:1;">name</text>
-    <g data-child="valve1" transform="translate(300,30) scale(0.5)" />
-    <g data-child="pid" transform="translate(50,50) scale(0.5)" />
+    <g data-child="valve1" transform="translate(300,30) scale(0.4)" />
+    <g data-child="pid" transform="translate(10,50) scale(0.4)" />
 
-    <g data-child="level" transform="translate(50,200) scale(0.5,0.5)"/>
+    <g data-child="level" transform="translate(10,200) scale(0.4)"/>
 
+    <g data-child="pC" transform="translate(250,200) scale(0.4)"/>
 
 </svg>
