@@ -3,7 +3,7 @@ var fs = require("fs");
 
 a.Neuron.setDB({host:'192.168.0.139'});
 
-a.Neuron.setMessaging(new a.Telegram({user:'user1', pass:'kjbkjb', to:'-1001105811074', service: 'awareness-telegramm-bot.herokuapp.com', proxy:{host: 'localhost', port: 3128}}));
+a.Neuron.setMessaging(new a.Telegram({user:'user1', pass:'kjbkjb', to:'-1001105811074', service: 'awareness-telegramm-bot.herokuapp.com', proxy:{host: '192.168.0.54', port: 3128}}));
 
 a.Neuron.projectPath = __dirname;
 
@@ -29,6 +29,7 @@ var node = new a.Neuron({
         esp2: new a.EspBridge({name: 'ESP2', ip: '192.168.0.137', outputs:[2], inputs:[4,5]}),
         rr: new a.Neuron({name: 'rr', rw:true}),
         pC: new a.PumpsControl({name: 'ЩУН', master: sMoMa1, address: 16, nP: 3}),
+        do: new a.Mu110({name: "A4 модуль дискретного вывода", master: sMoMa1, address: 64, channels: 16}),
     }
 });
 
