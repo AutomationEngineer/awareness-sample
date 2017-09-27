@@ -30,6 +30,9 @@ var node = new a.Neuron({
         rr: new a.Neuron({name: 'rr', rw:true}),
         pC: new a.PumpsControl({name: 'ЩУН', master: sMoMa1, address: 16, nP: 3}),
         do: new a.Mu110({name: "A4 модуль дискретного вывода", master: sMoMa1, address: 64, channels: 16}),
+        l1: new a.Neuron({name: "L1", value:0, rw: true, setValueHandler: a.Neuron.setValueBinaryHandler}),
+        l2: new a.Neuron({name: "L2", value:0, rw: true, setValueHandler: a.Neuron.setValueBinaryHandler}),
+        g: new a.GasCont({name: "GasCont", l1:"l1", l2:"l2"}),
     }
 });
 
